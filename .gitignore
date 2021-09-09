@@ -1,0 +1,14 @@
+.git
+.vscode
+.cache-loader
+.DS_Store
+*.map
+build/
+dist/
+node_modules/
+logs/
+tmp/
+uploads/
+package-lock.json
+yarn.lock
+npm-debug.log

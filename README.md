@@ -21,4 +21,5 @@
 
 ### Check it
 Open your browser at http://127.0.0.1:8080/
+
 ![](https://raw.githubusercontent.com/xiajinchun/account-book/main/public/sample.png)

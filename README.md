@@ -4,7 +4,7 @@
 ## Requirements
 
 - macOS
-- node 10.0+
+- node 12.0+
 
 ## Start
 

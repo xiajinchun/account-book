@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useRef } from 'react';
-import { Modal, Form, InputNumber, Select, notification } from 'antd';
+import { Modal, Form, InputNumber, Select, notification, DatePicker } from 'antd';
+import moment from 'moment';
 
 const { success } = notification;
 
@@ -23,7 +24,8 @@ const withCreateAccountItemModal = WrappedComponent => {
         let category = categories[fields.category];
         // 根据需求，账单可以为空，这里需要做特殊处理
         let amount = fields.amount;
-        let data = { amount, time: Date.now() };
+        let time = fields.time;
+        let data = { amount, time };
         if (category) {
           data.type = Number(category.type);
           data.category = category.id;
@@ -52,7 +54,7 @@ const withCreateAccountItemModal = WrappedComponent => {
             ref={formRef}
             labelCol={{ span: 4 }}
             wrapperCol={{ span: 20 }}
-            initialValues={{ remember: true }}
+            initialValues={{ time: moment() }}
             autoComplete="off">
             <Form.Item label="账单分类" name="category">
               <Select showSearch allowClear placeholder="请选择账单分类" optionFilterProp="children">
@@ -65,6 +67,9 @@ const withCreateAccountItemModal = WrappedComponent => {
                   );
                 })}
               </Select>
+            </Form.Item>
+            <Form.Item label="时间" name="time">
+              <DatePicker showTime style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item label="金额" name="amount" rules={[{ required: true, message: '请输入金额！' }]}>
               <InputNumber style={{ width: '100%' }} />
